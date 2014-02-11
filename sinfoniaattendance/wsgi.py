@@ -1,5 +1,5 @@
 """
-WSGI config for Attendance project.
+WSGI config for sinfoniaattendance project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -8,7 +8,7 @@ https://docs.djangoproject.com/en/1.6/howto/deployment/wsgi/
 """
 
 import os
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "Attendance.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "sinfoniaattendance.settings")
 
 from django.core.wsgi import get_wsgi_application
 from dj_static import Cling

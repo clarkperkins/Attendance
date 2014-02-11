@@ -1,1 +1,1 @@
-web: gunicorn Attendance.wsgi
+web: gunicorn sinfoniaattendance.wsgi

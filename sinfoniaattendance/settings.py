@@ -1,5 +1,5 @@
 """
-Django settings for Attendance project.
+Django settings for sinfoniaattendance project.
 
 For more information on this file, see
 https://docs.djangoproject.com/en/1.6/topics/settings/
@@ -47,9 +47,9 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'Attendance.urls'
+ROOT_URLCONF = 'sinfoniaattendance.urls'
 
-WSGI_APPLICATION = 'Attendance.wsgi.application'
+WSGI_APPLICATION = 'sinfoniaattendance.wsgi.application'
 
 
 # Database
