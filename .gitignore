@@ -6,3 +6,5 @@
 *.pot
 *.pyc
 local_settings.py
+venv
+staticfiles
