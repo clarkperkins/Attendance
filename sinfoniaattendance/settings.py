@@ -46,6 +46,13 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'Attendance.middleware.SecureRequiredMiddleware',
+)
+
+HTTPS_SUPPORT = True
+
+SECURE_REQUIRED_PATHS = (
+    '/admin/',
 )
 
 ROOT_URLCONF = 'sinfoniaattendance.urls'
