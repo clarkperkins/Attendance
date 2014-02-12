@@ -25,10 +25,10 @@ class Meeting(models.Model):
         return u"%s on %s" % (self.name, self.date)
 
 ATTENDANCE_TYPES = (
-    ('Present', 'present'),
-    ('Unexcused', 'unexcused'),
-    ('Eexcused', 'excused'),
-    ('Late', 'late'),
+    ('present', 'Present'),
+    ('unexcused', 'Unexcused'),
+    ('excused', 'Excused'),
+    ('late', 'Late'),
 )
 
 ATTENDANCE_VERBS = {
