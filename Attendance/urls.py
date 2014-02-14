@@ -4,5 +4,6 @@ from Attendance import views
 
 urlpatterns = patterns('',
     url(r'^$', views.index, name='home'),
-    url(r'^login/$', views.login, name='login'),
+    url(r'^login/$', views.web_login, name='login'),
+    url(r'^logout/$', views.web_logout, name='logout'),
 )

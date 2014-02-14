@@ -27,10 +27,10 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Attendance</a>
+          <a class="navbar-brand" href="{% url 'attendance:home' %}">Attendance</a>
         </div>
         <div class="navbar-collapse collapse">
-          <form class="navbar-form navbar-right" role="form">
+          <!--form class="navbar-form navbar-right" role="form">
             <div class="form-group">
               <input type="text" placeholder="Email" class="form-control">
             </div>
@@ -38,19 +38,33 @@
               <input type="password" placeholder="Password" class="form-control">
             </div>
             <button type="submit" class="btn btn-success">Sign in</button>
-          </form>
+          </form-->
+          <ul class="nav navbar-nav">
+          {% if logged_in %}
+            <li><a href="{% url 'attendance:logout' %}">Logout</a></li>
+          {% else %}
+            <li><a href="{% url 'attendance:login' %}">Login</a></li>
+          {% endif %}
+          </ul>
         </div><!--/.navbar-collapse -->
       </div>
     </div>
 
     <div class="container">
+      {% for message in messages %}
+      <div{% if message.tags %} class="alert alert-{{ message.tags }} alert-dismissable"{% endif %}>
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        {{ message }}
+      </div>
+      {% endfor %}
+      
       
       {% block content %}{% endblock %}
 
       <hr>
 
       <footer>
-        <p>&copy; Company 2014</p>
+        <p>&copy; Clark Perkins 2014</p>
       </footer>
     </div> <!-- /container -->
 
