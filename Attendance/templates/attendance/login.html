@@ -46,11 +46,11 @@
       <form action="{% url 'attendance:login' %}" method="post" class="form-signin" role="form">
         {% csrf_token %}
         <h2 class="form-signin-heading">Login</h2>
-        <input type="text" class="form-control" name="username" placeholder="Username" required autofocus>
-        <input type="password" class="form-control" name="password" placeholder="Password" required>
-        <label class="checkbox">
+        <input type="email" class="form-control" name="username" placeholder="Username" {% if retry %}value="{{ username }}"{% endif %} required autofocus>
+        <input type="password" class="form-control" name="password" placeholder="Password" {% if retry %}value="{{ password }}"{% endif %} required>
+        <!--label class="checkbox">
             <input type="checkbox" value="remember-me"> Remember me
-        </label>
+        </label-->
         <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
       </form>
 {% endblock %}

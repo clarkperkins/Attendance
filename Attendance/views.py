@@ -19,8 +19,7 @@ def index(request):
 @require_http_methods(["GET", "POST"])
 def web_login(request):
     if request.method == "POST":
-        perform_login(request)
-        return redirect('attendance:home')
+        return perform_login(request)
     else:
         context = {
             'title':'Login',
@@ -29,6 +28,13 @@ def web_login(request):
         return render(request, 'attendance/login.html', context)
 
 def perform_login(request):
+    context = {
+        'title':'Login',
+        'logged_in':request.user.is_authenticated(),
+        'retry':True,
+        'username':request.POST["username"],
+        'password':request.POST["password"],
+    }
     if request.POST.has_key("username") and request.POST.has_key("password"):
         if not request.user.is_authenticated():
             user = authenticate(username=request.POST["username"], password=request.POST["password"])
@@ -38,13 +44,15 @@ def perform_login(request):
                     messages.success(request, 'Successfully logged in as '+user.username+'!')
                 else:
                     messages.error(request, 'User account '+user.username+' is disabled.')
+                    return render(request, 'attendance/login.html', context)
             else:
                 messages.error(request, 'Invalid username or password.')
-        
+                return render(request, 'attendance/login.html', context)
         else:
             messages.warning(request, 'Already logged in as '+request.user.username+'.')
     else:
         messages.warning(request, 'Invalid post request.')
+    return redirect('attendance:home')
 
 def web_logout(request):
     if request.user.is_authenticated():

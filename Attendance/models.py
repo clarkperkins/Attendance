@@ -7,6 +7,7 @@ from django.contrib.auth.models import User
 class Organization(models.Model):
     name = models.CharField("Name", max_length=100, unique=True)
     members = models.ManyToManyField(User)
+    admin = models.ForeignKey(User)
 
     def __unicode__(self):
         numMembers = len(self.members.all())
