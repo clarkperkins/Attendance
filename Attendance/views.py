@@ -9,10 +9,11 @@ from Attendance.models import Organization, Meeting, AttendanceRecord
 # Create your views here.
 
 def index(request):
-    
     context = {
         'title':'Home',
+        'user':request.user,
         'logged_in':request.user.is_authenticated(),
+        'admin_orgs':request.user.admin_of_set.all(),
     }
     return render(request, 'attendance/home.html', context)
 
