@@ -46,4 +46,4 @@ class AttendanceRecord(models.Model):
     status = models.CharField("", max_length=10, choices=ATTENDANCE_TYPES)
 
     def __unicode__(self):
-        return "%s was %s %s %s" % (self.user, self.status, ATTENDANCE_PRONOUNS[self.status], self.meeting)
+        return "%s %s was %s %s %s" % (self.user.first_name, self.user.last_name, self.status, ATTENDANCE_PRONOUNS[self.status], self.meeting)
