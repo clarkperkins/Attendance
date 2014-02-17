@@ -10,18 +10,17 @@
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
-          {% if logged_in %}
-          <h1>Hello, {{ user.first_name }}!</h1>
-          {% else %}
-          <h1>Hello!</h1>
-          {% endif %}
+      {% if logged_in %}
+        <h1>Hello, {{ user.first_name }}!</h1>
         <p>You are an administrator of the following organizations:</p>
         <p>
         {% for org in admin_orgs %}
           {{ org }}
         {% endfor %}
         </p>
-        <p><a class="btn btn-primary btn-lg" role="button">Learn more &raquo;</a></p>
+      {% else %}
+        <h1>Hello!</h1>
+      {% endif %}
       </div>
     </div>
 
@@ -35,7 +34,7 @@
         </thead>
         <tbody>
           <tr>
-              
+            
           </tr>
         </tbody>
       </table>
