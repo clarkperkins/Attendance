@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 class Organization(models.Model):
     name = models.CharField("Name", max_length=100, unique=True)
     members = models.ManyToManyField(User)
-    admin = models.ForeignKey(User)
+    admin = models.ForeignKey(User, related_name="admin_of_set")
 
     def __unicode__(self):
         numMembers = len(self.members.all())
@@ -32,7 +32,7 @@ ATTENDANCE_TYPES = (
     ('late', 'Late'),
 )
 
-ATTENDANCE_VERBS = {
+ATTENDANCE_PRONOUNS = {
     'present': 'at',
     'unexcused': 'from',
     'excused': 'from',
@@ -46,4 +46,4 @@ class AttendanceRecord(models.Model):
     status = models.CharField("", max_length=10, choices=ATTENDANCE_TYPES)
 
     def __unicode__(self):
-        return "%s was %s %s %s" % (self.user, self.status, ATTENDANCE_VERBS[self.status], self.meeting)
+        return "%s was %s %s %s" % (self.user, self.status, ATTENDANCE_PRONOUNS[self.status], self.meeting)
