@@ -13,8 +13,9 @@ def index(request):
         'title':'Home',
         'user':request.user,
         'logged_in':request.user.is_authenticated(),
-        'admin_orgs':request.user.admin_of_set.all(),
     }
+    if context['logged_in']:
+        context['admin_orgs'] = request.user.admin_of_set.all()
     return render(request, 'attendance/home.html', context)
 
 @require_http_methods(["GET", "POST"])

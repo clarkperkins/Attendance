@@ -10,7 +10,11 @@
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
+          {% if logged_in %}
           <h1>Hello, {{ user.first_name }}!</h1>
+          {% else %}
+          <h1>Hello!</h1>
+          {% endif %}
         <p>You are an administrator of the following organizations:</p>
         <p>
         {% for org in admin_orgs %}
