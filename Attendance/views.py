@@ -63,3 +63,6 @@ def web_logout(request):
         messages.success(request, 'Successfully logged out user '+old_user+'.')
     return redirect('attendance:home')
 
+@require_http_methods(["POST"])
+def mcc_api(request):
+    return HttpResponse("received beacon data")
