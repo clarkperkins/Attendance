@@ -65,4 +65,4 @@ def web_logout(request):
 
 #@require_http_methods(["POST"])
 def mcc_api(request):
-    return HttpResponse("received beacon data")
+    return HttpResponse("received beacon data: "+str(len(request.POST))+" bytes")
