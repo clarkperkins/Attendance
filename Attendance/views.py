@@ -5,6 +5,10 @@ from django.http import HttpResponse
 from django.views.decorators.http import require_http_methods
 from django.contrib.auth.models import User
 from Attendance.models import Organization, Meeting, AttendanceRecord
+import json
+import logging
+
+logger = logging.getLogger(__name__)
 
 # Create your views here.
 
@@ -63,6 +67,8 @@ def web_logout(request):
         messages.success(request, 'Successfully logged out user '+old_user+'.')
     return redirect('attendance:home')
 
-#@require_http_methods(["POST"])
+@require_http_methods(["POST"])
 def mcc_api(request):
-    return HttpResponse("received beacon data: "+str(len(request.POST))+" bytes")
+    jsons = json.loads(request.POST["data"])
+    print json.dumps(jsons, indent=3)
+    return HttpResponse("received beacon data for "+str(len(jsons["beaconData"]))+" beacons.")
