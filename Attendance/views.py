@@ -71,4 +71,4 @@ def web_logout(request):
 def mcc_api(request):
     jsons = json.loads(request.POST["data"])
     print json.dumps(jsons, indent=3)
-    return HttpResponse("received beacon data for "+str(len(jsons["beaconData"]))+" beacons.")
+    return HttpResponse(json.dumps(jsons, indent=3))
