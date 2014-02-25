@@ -6,9 +6,6 @@ from django.views.decorators.http import require_http_methods
 from django.contrib.auth.models import User
 from Attendance.models import Organization, Meeting, AttendanceRecord
 import json
-import logging
-
-logger = logging.getLogger(__name__)
 
 # Create your views here.
 
