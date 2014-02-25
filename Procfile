@@ -1,1 +1,1 @@
-web: gunicorn sinfoniaattendance.wsgi
+web: gunicorn sinfoniapd.wsgi

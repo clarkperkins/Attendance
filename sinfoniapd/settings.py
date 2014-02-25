@@ -1,5 +1,5 @@
 """
-Django settings for sinfoniaattendance project.
+Django settings for sinfoniapd project.
 
 For more information on this file, see
 https://docs.djangoproject.com/en/1.6/topics/settings/
@@ -24,7 +24,7 @@ DEBUG = True
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -55,9 +55,9 @@ SECURE_REQUIRED_PATHS = (
     '/admin/',
 )
 
-ROOT_URLCONF = 'sinfoniaattendance.urls'
+ROOT_URLCONF = 'sinfoniapd.urls'
 
-WSGI_APPLICATION = 'sinfoniaattendance.wsgi.application'
+WSGI_APPLICATION = 'sinfoniapd.wsgi.application'
 
 
 # Database
@@ -123,9 +123,6 @@ MESSAGE_TAGS = {
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-
-# Allow all host headers
-ALLOWED_HOSTS = ['*']
 
 # Static asset configuration
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
