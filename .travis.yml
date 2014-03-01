@@ -10,7 +10,7 @@ python:
 # Install dependencies
 install: pip install -r requirements.txt
 
-before_script: echo "DATABASES['default'] = {'ENGINE': 'django.db.backends.sqlite3','NAME': os.path.join(BASE_DIR, 'db.sqlite3')}" >> sinfoniapd/settings.py
+before_script: "echo \"DATABASES['default'] = {'ENGINE': 'django.db.backends.sqlite3','NAME': os.path.join(BASE_DIR, 'db.sqlite3')}\" >> sinfoniapd/settings.py"
 
 # Run the tests
 script: python manage.py test
