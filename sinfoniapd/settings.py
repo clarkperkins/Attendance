@@ -46,14 +46,14 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'sinfoniapd.middleware.SecureRequiredMiddleware',
+#    'sinfoniapd.middleware.SecureRequiredMiddleware',
 )
 
 HTTPS_SUPPORT = True
 
-SECURE_REQUIRED_PATHS = (
-    '/admin/',
-)
+#SECURE_REQUIRED_PATHS = (
+#    '/admin/',
+#)
 
 ROOT_URLCONF = 'sinfoniapd.urls'
 
@@ -129,5 +129,5 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 STATIC_ROOT = 'staticfiles'
 
 STATICFILES_DIRS = (
-                    os.path.join(BASE_DIR, 'static'),
-                    )
+    os.path.join(BASE_DIR, 'static'),
+)
